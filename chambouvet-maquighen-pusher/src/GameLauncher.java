@@ -1,4 +1,6 @@
 
+
+
 /**
  * Project application class
  * @author chamboug
@@ -11,6 +13,9 @@ public class GameLauncher {
 	 * @param args (N/A)
 	 */
 	public static void main(String[] args) {
+		
+		MainWindow board = new MainWindow();
+		board.setVisible(true);
 		
 		String fixedContentOfTheMap = "";
 		fixedContentOfTheMap += "[f,-];[f,-];[w,-];[w,-];[w,-];[w,-];[w,-];[f,-]\n";
