@@ -38,6 +38,7 @@ public class MainPanel extends JPanel
 		
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,gamePanel,infoPanel);
 		splitPane.setDividerLocation(100);
+		
 		this.add(gamePanel);
 		this.add(infoPanel);
 		gamePanel.add(bouton);
