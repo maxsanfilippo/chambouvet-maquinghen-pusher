@@ -18,7 +18,7 @@ public class MainWindow extends JFrame
 	public MainWindow()
 	{
 		setTitle("Affichage Partie");
-		setSize(width/2,height/2);
+		setSize(width/2+20,height/2+30);
 		pan = new MainPanel();
 		getContentPane().add(pan);
 		

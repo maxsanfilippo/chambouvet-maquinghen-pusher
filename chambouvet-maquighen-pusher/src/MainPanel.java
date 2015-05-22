@@ -1,11 +1,6 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
+import javax.swing.*;
 
 
 public class MainPanel extends JPanel
@@ -13,7 +8,7 @@ public class MainPanel extends JPanel
 	private JPanel gamePanel;
 	private JPanel infoPanel;
 	private JSplitPane splitPane;
-	private JButton bouton1;
+	private JButton bouton;
 	private JButton bouton2;
 	Toolkit tk =Toolkit.getDefaultToolkit();
 	Dimension dimEcran = tk.getScreenSize();
@@ -23,28 +18,31 @@ public class MainPanel extends JPanel
 	
 	public MainPanel()
 	{
+		this.setLayout(null);
 		
 		gamePanel = new JPanel(new BorderLayout());
-		gamePanel.setBounds(0, 0, 500,500);
+		gamePanel.setBounds(0, 0, width/4+50,height/2);
+		gamePanel.setLayout(null);
+	
+		bouton = new JButton("test");
+		bouton.setBounds(10,10,gamePanel.getWidth()-30,gamePanel.getHeight()-30);
 		
-		
-		bouton1 = new JButton("test");
-		bouton1.setBounds(width/2, height/2, 10,10);
-		gamePanel.add(bouton1);
 		
 		infoPanel = new JPanel(new BorderLayout());
-		infoPanel.setBounds(500, 0, width/2 ,height/2);
+		infoPanel.setBounds(gamePanel.getWidth(), 0, width/4-50 ,height/2);
+		infoPanel.setLayout(null);
 		
 		bouton2 = new JButton("test2");
-	//	bouton2.setBounds(width/2, height/2, 0, 0);
-		infoPanel.add(bouton2);
+		bouton2.setBounds(10,10,infoPanel.getWidth()-30,infoPanel.getHeight()-30);
+		
 		
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,gamePanel,infoPanel);
-		splitPane.setDividerLocation(300);
+		splitPane.setDividerLocation(100);
 		splitPane.setOneTouchExpandable(true);
-		this.add(splitPane);
-	
-		
+		this.add(gamePanel);
+		this.add(infoPanel);
+		gamePanel.add(bouton);
+		infoPanel.add(bouton2);
 
 	}
 }
