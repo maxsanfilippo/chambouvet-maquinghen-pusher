@@ -21,7 +21,7 @@ public class MainWindow extends JFrame
 		setSize(width/2+20,height/2+30);
 		pan = new MainPanel();
 		getContentPane().add(pan);
-		
+		this.setResizable(false);
 	}
 	
 	
