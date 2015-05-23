@@ -15,11 +15,11 @@ public class MainWindow extends JFrame
 
 	
 	
-	public MainWindow()
+	public MainWindow(Map p_map)
 	{
 		setTitle("Affichage Partie");
 		setSize(width/2+20,height/2+30);
-		pan = new MainPanel();
+		pan = new MainPanel(p_map);
 		getContentPane().add(pan);
 		this.setResizable(false);
 	}

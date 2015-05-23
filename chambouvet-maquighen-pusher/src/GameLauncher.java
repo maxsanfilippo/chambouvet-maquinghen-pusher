@@ -14,8 +14,7 @@ public class GameLauncher {
 	 */
 	public static void main(String[] args) {
 		
-		MainWindow board = new MainWindow();
-		board.setVisible(true);
+		
 		
 		String fixedContentOfTheMap = "";
 		fixedContentOfTheMap += "[f,-];[f,-];[w,-];[w,-];[w,-];[w,-];[w,-];[f,-]\n";
@@ -30,8 +29,11 @@ public class GameLauncher {
 			
 		Map map = Map.parseMap(fixedContentOfTheMap);
 
+		MainWindow board = new MainWindow(map);
+		board.setVisible(true);
 		
-		new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
+	//	new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
+
 	}
 
 }
