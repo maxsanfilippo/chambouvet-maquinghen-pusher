@@ -22,6 +22,7 @@ public class MainWindow extends JFrame
 		pan = new MainPanel(p_map);
 		getContentPane().add(pan);
 		this.setResizable(false);
+		pan.updateLayout();
 	}
 	
 	

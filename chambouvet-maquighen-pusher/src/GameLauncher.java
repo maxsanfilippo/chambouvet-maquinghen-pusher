@@ -32,7 +32,7 @@ public class GameLauncher {
 		MainWindow board = new MainWindow(map);
 		board.setVisible(true);
 		
-	//	new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
+		new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
 
 	}
 
