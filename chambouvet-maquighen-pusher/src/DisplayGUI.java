@@ -1,7 +1,7 @@
 
 
 
-public class DisplayGUI implements PlayerDisplay
+public class DisplayGUI implements PlayerDisplay, PlayerEntry
 {
 	MainWindow board;
 	public DisplayGUI(Map map)
@@ -50,6 +50,25 @@ public class DisplayGUI implements PlayerDisplay
 	{
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	public Direction getDirectionToGo()
+	{
+	
+			if (board.pan.isRight())
+				return Direction.RIGHT;
+			else if (board.pan.isLeft())
+				 return Direction.LEFT;
+			else if (board.pan.isUp())
+				return Direction.UP;
+			else if (board.pan.isDown())
+				return Direction.DOWN;
+		//	else if ("give up"))
+			//	return null;
+			
+			return Direction.NOWHERE;
+	
 	}
 
 }
