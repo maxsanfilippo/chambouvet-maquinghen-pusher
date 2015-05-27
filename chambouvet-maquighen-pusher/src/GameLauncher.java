@@ -29,10 +29,11 @@ public class GameLauncher {
 			
 		Map map = Map.parseMap(fixedContentOfTheMap);
 
-		MainWindow board = new MainWindow(map);
-		board.setVisible(true);
+	//	MainWindow board = new MainWindow(map);
+	//	board.setVisible(true);
+		DisplayGUI test = new DisplayGUI(map);
 		
-		new GameOfPusher(map, new EntryConsole(), new DisplayConsole()).play();
+		new GameOfPusher(map, new EntryGUI(test), test).play();
 
 	}
 
