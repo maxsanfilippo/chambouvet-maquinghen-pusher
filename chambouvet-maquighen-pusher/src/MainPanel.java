@@ -54,12 +54,12 @@ public class MainPanel extends JPanel implements ActionListener
 		
 		
 		infoPanel = new JPanel(new BorderLayout());
-		infoPanel.setBounds(gamePanel.getWidth()+20, 0, width/4-100 ,height/2+100);
+		infoPanel.setBounds(gamePanel.getWidth()+20, 0, 500 ,height/2+100);
 		infoPanel.setLayout(null);
 			
 		info = new JLabel("SOKOBAN");
-		info.setBounds(30, 50, 150, 50);
-		Font font = new Font("Arial",Font.ITALIC,18);
+		info.setBounds(30, 50, 100, 300);
+		Font font = new Font("Arial",Font.BOLD,20);
 		info.setFont(font);
 		
 		
@@ -75,8 +75,8 @@ public class MainPanel extends JPanel implements ActionListener
 		
 		this.add(gamePanel);
 		this.add(infoPanel);
-		infoPanel.add(info);
 		
+		infoPanel.add(info);
 		infoPanel.add(giveup);
 
 	}
