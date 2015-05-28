@@ -7,12 +7,9 @@ import java.awt.event.KeyListener;
 import javax.swing.*;
 
 
-public class MainPanel extends JPanel implements KeyListener
+public class MainPanel extends JPanel implements ActionListener
 {
-	private boolean left,right,up,down;
-	
 
-	
 
 	private JPanel gamePanel;
 	private JPanel infoPanel;
@@ -27,17 +24,19 @@ public class MainPanel extends JPanel implements KeyListener
 	private JLabel[] theLabels;
 
 	private int labelsMax;
+	
+
 
 	
-	public MainPanel(Map p_map)
+
+	private JLabel info;
+	private DisplayGUI display;
+
+	
+	public MainPanel(Map p_map, DisplayGUI display)
 	{
 		
-	
-        this.left=false;
-        this.right=false;
-        this.up=false;
-        this.down=false;
-        
+		this.display = display;
 		this.map = p_map;
 		this.labelsMax = map.getNumberOfColumns()*map.getNumberOfRows();
 		this.setLayout(null);
@@ -52,22 +51,31 @@ public class MainPanel extends JPanel implements KeyListener
 			gamePanel.add(theLabels[mapElement]);
 		}
 		
-		this.addKeyListener(this);
+		
 		
 		infoPanel = new JPanel(new BorderLayout());
 		infoPanel.setBounds(gamePanel.getWidth()+20, 0, width/4-100 ,height/2+100);
 		infoPanel.setLayout(null);
+			
+		info = new JLabel("SOKOBAN");
+		info.setBounds(30, 50, 150, 50);
+		Font font = new Font("Arial",Font.ITALIC,18);
+		info.setFont(font);
+		
 		
 		
 		giveup = new JButton("Give up");
+		giveup.setFocusable(false);
 		giveup.setBounds(80,500,100,50);
 		
+		giveup.addActionListener(this);
 		
 		splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,gamePanel,infoPanel);
 		splitPane.setDividerLocation(100);
 		
 		this.add(gamePanel);
 		this.add(infoPanel);
+		infoPanel.add(info);
 		
 		infoPanel.add(giveup);
 
@@ -119,71 +127,14 @@ public class MainPanel extends JPanel implements KeyListener
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e)
+	public void actionPerformed(ActionEvent arg0)
 	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e)
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e)
-	{
-		 switch(e.getKeyCode()){
-         case 37 : left = true ; break;
-         case 39 : right = true ; break;
-         case 38 : up = true ; break;
-         case 40 : down = true ; break;
+		if (arg0.getSource()==giveup)
+		{
+			display.setDirection(null);
 		}
 		
 	}
-	
-	public boolean isLeft()
-	{
-		return left;
-	}
 
-	public void setLeft(boolean left)
-	{
-		this.left = left;
-	}
-
-	public boolean isRight()
-	{
-		return right;
-	}
-
-	public void setRight(boolean right)
-	{
-		this.right = right;
-	}
-
-	public boolean isUp()
-	{
-		return up;
-	}
-
-	public void setUp(boolean up)
-	{
-		this.up = up;
-	}
-
-	public boolean isDown()
-	{
-		return down;
-	}
-
-	public void setDown(boolean down)
-	{
-		this.down = down;
-	}
-
-			
 			
 }

@@ -33,10 +33,10 @@ public class GameLauncher {
 	//	board.setVisible(true);
 		DisplayGUI test = new DisplayGUI(map);
 		
-		new GameOfPusher(map, test, test).play();
+		new GameOfPusher(map, test, new DisplayConsole()).play();
 		
 		// ou alors :
-		// new GameOfPusher(map, new RandomEntry(), test).play();
+	// new GameOfPusher(map, new EntryRandom(), test).play();
 
 	}
 
